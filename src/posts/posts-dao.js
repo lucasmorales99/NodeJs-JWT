@@ -6,7 +6,7 @@ module.exports = {
       db.run(
         `
         INSERT INTO posts (
-          titulo, 
+          titulo,
           conteudo
         ) VALUES (?, ?)
       `,

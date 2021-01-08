@@ -9,10 +9,10 @@ module.exports = {
           INSERT INTO usuarios (
             nome,
             email,
-            senha
+            senhaHash
           ) VALUES (?, ?, ?)
         `,
-        [usuario.nome, usuario.email, usuario.senha],
+        [usuario.nome, usuario.email, usuario.senhaHash],
         erro => {
           if (erro) {
             reject(new InternalServerError('Erro ao adicionar o usuário!'));
@@ -22,6 +22,7 @@ module.exports = {
         }
       );
     });
+
   },
 
   buscaPorId: id => {
@@ -42,6 +43,7 @@ module.exports = {
         }
       );
     });
+
   },
 
   buscaPorEmail: email => {
@@ -62,6 +64,7 @@ module.exports = {
         }
       );
     });
+
   },
 
   lista: () => {

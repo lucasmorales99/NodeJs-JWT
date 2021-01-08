@@ -8,10 +8,10 @@ module.exports = {
     try {
       const usuario = new Usuario({
         nome,
-        email,
-        senha
+        email
       });
 
+      await usuario.adicionaSenha(senha);
       await usuario.adiciona();
 
       res.status(201).json();
@@ -24,6 +24,7 @@ module.exports = {
         res.status(500).json({ erro: erro.message });
       }
     }
+
   },
 
   lista: async (req, res) => {
